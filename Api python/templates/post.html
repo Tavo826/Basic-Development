@@ -1,0 +1,10 @@
+<!--Muestra una única entrada-->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <!--El título de la página refleja el título del encabezado de la entrada-->
+    <h2>{% block title %} {{ post['title'] }} {% endblock %}</h2>
+    <span class="badge badge-primary">{{ post['created'] }}</span>
+    <p>{{ post['content'] }}</p>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Welcome to this API attemp with Flask {% endblock %}</h1>
+    
+    <!--Mostrando cada entrada en la página de índice-->
+    <!--Bucle 'for' Jinja-->
+    {% for post in posts %}
+        <!--Crea cada enlace al título de la entrada a su página respectiva-->
+        <!--devuelve la URL adecuada para cada entrada según el ID-->
+        <a href="{{ url_for('post', post_id=post['id']) }}">
+            <!--Se muestra el título de la entrada-->
+            <h2>{{ post['title'] }}</h2>
+        </a>
+        <span class="badge badge-primary">{{ post['created'] }}</span>
+        <!--Enlace para la página de edición-->
+        <a href="{{ url_for('edit', id=post['id']) }}">
+            <span class="badge badge-warning">Edit</span>
+        </a>
+        <hr>
+    {% endfor %}
+{% endblock %}
