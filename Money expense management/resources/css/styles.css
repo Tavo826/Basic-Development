@@ -1,7 +1,8 @@
 /*Toma los elementos h1*/
-h1{
+h2{
     /*Alinea el texto al centro*/
     text-align: center;
+    padding-bottom: 40px;
 }
 
 form{
@@ -9,14 +10,18 @@ form{
 }
 /*Toma la clase*/
 .formField{
-    background-color: wheat;
+    /*background-color: wheat;*/
     /*Márgenes de los div del formulario*/
     /*con paddin se alarga el div*/
-    padding-bottom: 20px;
+    padding-bottom: 10px;
 }
 /*Toma el id*/
 #botonAgregar{
     font-size: 23px;
+}
+
+#divBoton{
+    padding-top: 10px;
 }
 
 td, th{

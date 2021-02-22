@@ -15,63 +15,95 @@ FIXME:
 <head>
     <meta charset="utf-8">
     <title>Mi Economía</title>
+    <!--Librería materializecss-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="./resources/css/styles.css">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <body>
-        <h1>Economy App</h1>
-        <form id="transactionForm">
-            
-            <div class="formField">
-                Tipo de transacción
-                <input id="ingreso" type="radio" name="transactionType" value="Ingreso">
-                <label for="ingreso">Ingreso</label>
-                <input id="egreso" type="radio" name="transactionType" value="Egreso">
-                <label for="egreso">Egreso</label>
-            </div>
-            
-            <div class="formField">
-                <label for="transactionAmount">Monto</label>
-                <input id="transactionAmount" name="transactionAmount" type="number">
-            </div>
-            
-            <div class="formField">
-                <label for="transactionCategory">Categoría</label>
-                <input id="transactionCategory" name="transactionCategory" type="text">
-            </div>
-            
-            <div class="formField">
-                <label for="transactionDescription">Descripción</label>
-                <input id="transactionDescription" name="transactionDescription" type="text">
-            </div>
-            
-            <div class="formField">
-                <button id="botonAgregar">Agregar</button>
+        <h2>Economy App</h2>
+
+        <div class="row">
+
+            <div class="col s6 offset-s1">
+                <table id="transactionTable">
+                    <caption>Historial de transacciones</caption>
+                    <thead>
+                        <tr>
+                            <th> <!--Table header-->
+                                Tipo
+                            </th>
+                            <th>
+                                Cantidad
+                            </th>
+                            <th>
+                                Categoría
+                            </th>
+                            <th>
+                                Descripción
+                            </th>
+                            <th>
+                                Eliminar
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
             </div>
 
-        </form>
+            <div class="col s5">
+                <div class="col s7 offset-s2">
+                    <form id="transactionForm">
+                    
+                        <div class="formField">                          
+                            <p>
+                                <span>Transacción</span>
+                                <label>
+                                <input value="Ingreso" class="with-gap" name="transactionType" type="radio" checked />
+                                <span>Ingreso</span>
+                                </label>
+                                <label>
+                                    <input value="Egreso" class="with-gap" name="transactionType" type="radio" checked />
+                                    <span>Egreso</span>
+                                </label>
+                            </p>
+                        </div>
+                        
+                        <div class="input-field">
+                            <label for="transactionAmount">Monto</label>
+                            <input required min="0" id="transactionAmount" name="transactionAmount" type="number" class="validate">
+                        </div>
+                        
+                        <div class="formField">
+                            <label>Categoría</label>
+                            <select id="transactionCategory" name="transactionCategory" class="browser-default">
+                                <option value="Seleccionar" disabled selected>Seleccionar...</option>
+                                <option value="Putas">Putas</option>
+                                <option value="Drogas">Drogas</option>
+                                <option value="Comida">Comida</option>
+                                <option value="Trago">Trago</option>
+                            </select>
+                        </div>
+                        
+                        <div class="input-field">    
+                            <label for="transactionDescription">Descripción</label>
+                            <input required id="transactionDescription" name="transactionDescription" type="text" class="validate">                    
+                        </div>
+                        
+                        <div class="formField" id="divBoton">
+                            <button class="btn waves-effect waves-light" id="botonAgregar" type="submit">Agregar
+                                <i class="material-icons right">monetization_on</i>
+                            </button>
+                        </div>
 
-        <div class="tableFormat">
-            <table id="transactionTable">
-                <tr>
-                    <th> <!--Table header-->
-                        Tipo
-                    </th>
-                    <th>
-                        Cantidad
-                    </th>
-                    <th>
-                        Categoría
-                    </th>
-                    <th>
-                        Descripción
-                    </th>
-                    <th>
-                        Eliminar
-                    </th>
-                </tr>
-            </table>
+                    </form>
+                </div>
+            </div>
+
         </div>
-    
+        
+        <!--Librería materializecss-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script src="resources/js/scripts.js"></script>
 
     </body>
