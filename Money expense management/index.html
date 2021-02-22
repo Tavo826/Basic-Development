@@ -2,19 +2,20 @@
 
 <!--
 TODO:
-* Al tocar 'Añadir' se añadan los datos a una tabla
-* No se actualice la página al presionar 'Añadir'
 * Agregar cuadro donde se mire el total de dinero que tengo
-Cancela el recargo de la página al presionar el botón
+* Agregar cuadro para seleccionar fecha
+
+Local storage
 
 FIXME:
-* Ingreso y egreso en un pop-up-bar (?)
+* 
 -->
 
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Mi economía</title>
+    <title>Mi Economía</title>
+    <link rel="stylesheet" href="./resources/css/styles.css">
 
     <body>
         <h1>Economy App</h1>
@@ -22,9 +23,9 @@ FIXME:
             
             <div class="formField">
                 Tipo de transacción
-                <input id="ingreso" type="radio" name="tsSelector">
+                <input id="ingreso" type="radio" name="transactionType" value="Ingreso">
                 <label for="ingreso">Ingreso</label>
-                <input id="egreso" type="radio" name="tsSelector">
+                <input id="egreso" type="radio" name="transactionType" value="Egreso">
                 <label for="egreso">Egreso</label>
             </div>
             
@@ -50,7 +51,7 @@ FIXME:
         </form>
 
         <div class="tableFormat">
-            <table>
+            <table id="transactionTable">
                 <tr>
                     <th> <!--Table header-->
                         Tipo
@@ -64,90 +65,15 @@ FIXME:
                     <th>
                         Descripción
                     </th>
-                </tr>
-                <tr>
-                    <td> <!--Table data-->
-                        Ingreso
-                    </td>
-                    <td>
-                        1500000
-                    </td>
-                    <td>
-                        Trabajo
-                    </td>
-                    <td>
-                        Sueldo
-                    </td>
-                </tr>
-                <tr>
-                    <td> <!--Table data-->
-                        Egreso
-                    </td>
-                    <td>
-                        7000
-                    </td>
-                    <td>
-                        Comida
-                    </td>
-                    <td>
-                        Hamburguesa
-                    </td>
+                    <th>
+                        Eliminar
+                    </th>
                 </tr>
             </table>
         </div>
-
-        <script>
-            /*Capturando el evento submit (envío del formulario)*/
-            const form = document.getElementById('transactionForm')
-            /*console.log(form)*/
-            /*Detectande el evento submit*/
-            form.addEventListener('submit', function(event){
-                    /*console.log(event);*/
-                    /*alert('Se detecto un envio del formulario')*/
-                    
-                    /*Evitando que se recargue la página con el evento*/
-                    /*y que se envíe el formulario al servidor*/
-                    event.preventDefault();
-                    
-                }
-            )
-        </script>
-        
-        <style>
-            /*Toma los elementos h1*/
-            h1{
-                /*Alinea el texto al centro*/
-                text-align: center;
-            }
-
-            form{
-                text-align: center;
-            }
-            /*Toma la clase*/
-            .formField{
-                background-color: wheat;
-                /*Márgenes de los div del formulario*/
-                /*con paddin se alarga el div*/
-                padding-bottom: 20px;
-            }
-            /*Toma el id*/
-            #botonAgregar{
-                font-size: 23px;
-            }
-            
-            td, th{
-                /*Agregando bordes a la tabla*/
-                border: solid red 1px;
-                padding: 10px;
-                text-align: center;
-            }
-
-            .tableFormat table{
-                /*Centrando la tabla*/
-                margin: 10px auto;
-            }
-        </style>
     
+        <script src="resources/js/scripts.js"></script>
+
     </body>
 
 </head>

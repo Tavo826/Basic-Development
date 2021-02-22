@@ -1,0 +1,32 @@
+/*Toma los elementos h1*/
+h1{
+    /*Alinea el texto al centro*/
+    text-align: center;
+}
+
+form{
+    text-align: center;
+}
+/*Toma la clase*/
+.formField{
+    background-color: wheat;
+    /*Márgenes de los div del formulario*/
+    /*con paddin se alarga el div*/
+    padding-bottom: 20px;
+}
+/*Toma el id*/
+#botonAgregar{
+    font-size: 23px;
+}
+
+td, th{
+    /*Agregando bordes a la tabla*/
+    border: solid red 1px;
+    padding: 10px;
+    text-align: center;
+}
+
+.tableFormat table{
+    /*Centrando la tabla*/
+    margin: 10px auto;
+}
