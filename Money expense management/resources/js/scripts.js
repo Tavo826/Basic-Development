@@ -32,8 +32,25 @@ document.addEventListener('DOMContentLoaded', function(event){
             //Se inserta en la tabla la fila actual
             insertRowInTransactionTable(arrElement)
         });
+        createCategories()
     }
 )
+
+function insertCategory(categoryName){
+    //Se selecciona el elemento al que se quiere insertar
+    const selecElement = document.getElementById('transactionCategory')
+    //Interpolación, permite agregar un string a una variable
+    let categoryToInsert = `<option>${categoryName}</option>`
+    //Se inserta la categoría al final
+    selecElement.insertAdjacentHTML('beforeend', categoryToInsert)
+}
+
+function createCategories(){
+    let allCategories = ['Putas', 'Drogas', 'Comida', 'Trago']
+    for(let index=0; index<allCategories.length; index++){
+        insertCategory(allCategories[index])
+    }
+}
 
 function getNewTransactionId(){
     //Obteniendo el Id desde el local storage, si es vacío se le asigna -1
@@ -107,7 +124,7 @@ function deleteTransactionObj(transactionId){
     //Obteniendo todas las transacciones
     let transactionObjArr = JSON.parse(localStorage.getItem('transactionData'))
     //Se busca el índice que se desea eliminar del array
-    let transactionIndexInArr = transactionObjArr.findIndex(element => element.transactionId === transactionId)
+    let transactionIndexInArr = transactionObjArr.findIndex(element => element.transactionId === parseInt(transactionId))
     //Eliminando el elemento del array
     transactionObjArr.splice(transactionIndexInArr, 1)
     //Convirtiendo el array de transacción a json
