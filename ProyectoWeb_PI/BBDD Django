@@ -78,3 +78,4 @@ Se crea un archivo urls.py dentro de la aplicación (Si se tienen varias Apps)
 Se crea la carpeta templates dentro de la App
 Se registran las aplicaciones en settings
 Se le da formato al sitio web los html y css (con Bootstrap)
+    
