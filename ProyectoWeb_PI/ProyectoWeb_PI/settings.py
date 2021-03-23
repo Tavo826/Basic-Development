@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     #Registrando las apps
     'ProyectoWebApp',
     'servicios',
+    'blog',
 ]
 
 MIDDLEWARE = [
