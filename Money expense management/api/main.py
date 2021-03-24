@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request, Response
 from flask import jsonify
 
 #Guardando el servidos flask
