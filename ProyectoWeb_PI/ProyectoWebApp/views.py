@@ -12,8 +12,3 @@ def tienda(request):
 
     #return HttpResponse('Tienda')
     return render(request, 'ProyectoWebApp/tienda.html')
-
-def contacto(request):
-
-    #return HttpResponse('Contacto')
-    return render(request, 'ProyectoWebApp/contacto.html')

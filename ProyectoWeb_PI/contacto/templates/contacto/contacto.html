@@ -1,0 +1,18 @@
+<!--Heredando de la plantilla base.html-->
+{% extends "ProyectoWebApp/base.html" %}
+
+<!--Cargando la carpeta static-->
+{% load static %}
+
+<!--Abriendo el bloque de contenido-->
+{% block content %}
+    <!--Formulario renderizado como tabla-->
+    <div class="contenedorFormulario">
+        <form action="" method="POST" style="text-align: center;">
+            <!--token de seguridad csrf (Para que no añadan información de manera externa)-->            
+            {% csrf_token %}
+            <table style="color: white; margin: 20px auto;">{{miFormulario.as_table}}</table>
+            <input type="submit" value="Enviar" style="width: 130px;">
+        </form>        
+    </div>
+{% endblock %}
