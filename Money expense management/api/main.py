@@ -1,12 +1,12 @@
-from flask import Flask, request, Response
+from flask import Flask, request, Response, render_template
 from flask import jsonify
 
 #Guardando el servidos flask
-app = Flask(__name__)
+app = Flask(__name__, template_folder='../frontend')
 
 @app.route('/')
 def index():
-    return 'Welcome to tomorrowland'
+    return render_template('index.html')
 
 @app.route('/api/v1/transactions', methods=['GET'])
 def get_transactions():
