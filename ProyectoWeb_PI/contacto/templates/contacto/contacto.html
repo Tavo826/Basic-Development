@@ -8,6 +8,12 @@
 {% block content %}
     <!--Formulario renderizado como tabla-->
     <div class="contenedorFormulario">
+
+        <!--Recibiendo la variable que se envía al cargar el formulario con un GET-->
+        {% if 'valido' in request.GET %}
+            <p style="color: white;">Información enviada correctamente</p>
+        {% endif %}
+
         <form action="" method="POST" style="text-align: center;">
             <!--token de seguridad csrf (Para que no añadan información de manera externa)-->            
             {% csrf_token %}
@@ -15,4 +21,6 @@
             <input type="submit" value="Enviar" style="width: 130px;">
         </form>        
     </div>
+<!--(Prueba) para ver lo que el usuario ingresa en el formulario-->
+<p style="color: white;">{{request.POST}}</p>
 {% endblock %}
