@@ -6,23 +6,31 @@
 
 <!--Abriendo el bloque de contenido-->
 {% block content %}
+
+    <div class="container">
     
-    <div class="row">
+        <div class="row">
 
-        {% for producto in productos %}
+            {% for producto in productos %}
 
-            <div class="card" style="width: 10%;">
-                
-                <img src="{{producto.imagen.url}}" alt="">
+                <div class="col-md-3">
 
-                <div class="card-body">
-                    <h7 class="card-title">{{producto.nombre}}</h7>
-                    <p class="card-text">{{producto.precio}}</p>
+                    <div class="card" style="width: 100%; margin: 5px 5px;">
+                        
+                        <img src="{{producto.imagen.url}}" class="card-img-top">
+
+                        <div class="card-body" style="text-align: center;">
+                            <h7 class="card-title">{{producto.nombre}}</h7>
+                            <p class="card-text">$&nbsp;{{producto.precio}}</p>
+                        </div>
+
+                    </div>
+
                 </div>
 
-            </div>
+            {% endfor %}
 
-        {% endfor %}
+        </div>
 
     </div>
 
