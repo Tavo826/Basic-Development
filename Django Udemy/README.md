@@ -11,4 +11,4 @@ Promueve la filosofía del desarrollo ágil y extensible, aplicando el pricipio 
 
 ### Iniciar un proyecto
 
-django-admin startproject *Nombre*
+django-admin startproject **Nombre**
