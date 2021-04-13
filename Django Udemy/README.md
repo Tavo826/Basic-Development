@@ -24,3 +24,13 @@ python manage.py startapp **NombreApp** para crear una app
 ### Vistas
 
 Hacen referencia a la lógica que se ejecuta cuando se hace una petición a la Web
+
+### Urls
+
+Administran la dirección en la que se va a mostrar cada una de las vistas
+
+### Ficheros estáticos (configuración)
+
+Django no puede trabajar con los ficheros estáticos predefinidos en el frontend, para ver cómo quedaría la página finalizada se deben realizar algunas configuraciones
+
+Se crea una carpeta static dentro de la app y se copia allí los recursos estáticos necesarios para la app
