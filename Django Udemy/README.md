@@ -34,3 +34,38 @@ Administran la dirección en la que se va a mostrar cada una de las vistas
 Django no puede trabajar con los ficheros estáticos predefinidos en el frontend, para ver cómo quedaría la página finalizada se deben realizar algunas configuraciones
 
 Se crea una carpeta static dentro de la app y se copia allí los recursos estáticos necesarios para la app
+
+### Modelos
+
+Son las clases que están enlazadas a la base de datos de la app, cada clase representa una tabla en la base de datos
+
+### Crear superusuario ADMIN
+
+Es necesario para ingresar el administrador de Django en el que se pueden modificar los modelos del proyecto, los cuales deben estar registrados previamente en el fichero **admin.py** de la app
+
+python manage.py createsuperuser
+
+#### Personalizar el ADMIN
+
+Para modificar el nombre de la app se agrega en el script *apps.py* de la app, la variable **verbose_name** con el nombre que se desea que aparezca, para validar esta acción se debe modificar en la lista **INSTALED_APPS** del script *settings.py* del proyecto:
+
+'portfolio.apps.NombreClase'
+
+Para modificar el nombre del modelo se crea una subclase dentro de la misma clase llamada **Meta** para añadir metadatos extendidos en la que se puede agregar el nombre con que se desea ver el modelo tanto en singular (verbose_name) como en plural (verbose_name_plural), también se puede agregar un campo para ordenar los registros utilizando la variable 
+
+ordering = [lista de atributos con los que se desea ordenar]
+
+Para modificar la foma como se ven las publicaciones en el ADMIN se agrega dentro de la subclase una función *__str__(self)* y retornando de esta el parámetro qeu se desee
+
+Para que se pueda visualizar la fecha de cración y de edición de cada publicación, en el script *admin.py* se crea una clase para extender las funcionalidades del ADMIN, en ella se redefinen el 'created' y el 'updated' como campos de lectura
+
+Para mostrar las imágenes de las publicaciones, como primera medida se guardan en la raíz del proyecto en una carpeta llamada *media*, esta carpeta se registra en el fichero *settings.py*, añadiendo al final la dirección pública de la carpeta (MEDIA_URL), la dirección privada de la carpeta (MEDIA_ROOT). Luego de esto, siempre que se tenga el bug en True, se debe añadir una configuración extendida. En el fichero *urls.py* del proyecto.
+
+### Patrón MVT: Modelo-Vista-Template
+
+Cuando se trabaja con bases de datos y modelos, el proceso que sigue Django es el siguiente:
+
+* Se recibe la petición
+* Se pasa a la vista
+* En la vista se recuperan los datos del modelo correspondiente
+* Se renderiza el template, integrando los datos dinámicos del modelos que se pasa desde la vista, antes de que el navegador muestre el html resultante
