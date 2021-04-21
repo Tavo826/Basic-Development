@@ -45,7 +45,7 @@ Es necesario para ingresar el administrador de Django en el que se pueden modifi
 
 python manage.py createsuperuser
 
-#### Personalizar el ADMIN
+#### Personalizar el ADMIN (1)
 
 Para modificar el nombre de la app se agrega en el script *apps.py* de la app, la variable **verbose_name** con el nombre que se desea que aparezca, para validar esta acción se debe modificar en la lista **INSTALED_APPS** del script *settings.py* del proyecto:
 
@@ -69,3 +69,48 @@ Cuando se trabaja con bases de datos y modelos, el proceso que sigue Django es e
 * Se pasa a la vista
 * En la vista se recuperan los datos del modelo correspondiente
 * Se renderiza el template, integrando los datos dinámicos del modelos que se pasa desde la vista, antes de que el navegador muestre el html resultante
+
+### Relaciones entre modelos
+
+#### Relaciones con foreign keys:
+
+Permiten enlazar una insancia de un modelo con otra instancia de otro modelo, o del mismo. Un ejemplo es el enlace de una entrada con un usuario que representa al autor
+
+#### Relaciones many to many: 
+
+Permiten enlazar varias instancias. Un ejemplo es la asignación de varias categorías a una sola entrada.
+
+#### Personalizar el ADMIN (2)
+
+En el script *admin.py* de la app se puede modificar las columnas que se desean mostrar en el admin
+
+list_display = (*args,)
+
+También se pueden ordenar las entradas por uno o varios campos
+
+ordering = (*args,)
+
+Se puede mostrar un formulario de búsqueda
+
+search_fields = (args*,)
+
+Para poder buscar por autor, al hacer parte de un modelo relacional foreign key
+
+search_fields = ('author__username',)
+
+Para poder buscar por categorías, al hacer parte de un modelo relacional many to many
+
+search_fields = ('categories__name',)
+
+Se puede usar una gerarquía de fechas para modelos con campos DateTime
+
+date_hierarchy = *arg
+
+Finalmente se puede crear una lista de campos con los que se desea filtrar, normalmente son relaciones
+
+list_filter = (*args,)
+
+Para mostrar los elementos relacionados en campos many to many se crea un método dentro de la clase
+
+
+
