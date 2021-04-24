@@ -144,3 +144,15 @@ Para establecer una configuración personalizada básica se debe redefinir su di
 * 'toolbar': 'Basic' -> muestra un diseño simple con negritas y cursivas
 
 Para que django interprete los cambios que se realizan en el texto, se cambia el template donde se use la variable de contenido del modelo
+
+### Formularios
+
+Se crean en un script *forms.py* dentro de la app, allí se importa la librería **forms** y se declara una clase con los campos necesarios para el modelo
+
+#### Enviar formulario por correo
+
+Para hacer pruebas se puede hacer con **Mailtrap.io** y copiar la configuración en *settings.py*
+
+### Personalizar el ADMIN (4)
+
+Modificando los permisos de los usuarios, se crea un grupo en el admin y se les da los permisos, cada modelo tiene 4 permisos añadir, cambiar, borrar y ver. También puede ser necesario que algunos campos sean de solo lectura, esto se hace en el script *admin.py* de la app

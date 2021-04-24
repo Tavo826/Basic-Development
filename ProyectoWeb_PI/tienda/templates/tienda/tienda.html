@@ -8,6 +8,11 @@
 {% block content %}
 
     <div class="container">
+
+        <!--Creando el widget del carrito-->
+        <div style="float: right;">
+            <p style="color: white;">Acá va el carrito</p>
+        </div>
     
         <div class="row">
 
@@ -22,6 +27,11 @@
                         <div class="card-body" style="text-align: center;">
                             <h7 class="card-title">{{producto.nombre}}</h7>
                             <p class="card-text">$&nbsp;{{producto.precio}}</p>
+                        </div>
+
+                        <!--Botón para agregar al crrito-->
+                        <div class="card-footer text-center">
+                            <a href="#" class="btn btn-success">Agregar al carrito</a>
                         </div>
 
                     </div>

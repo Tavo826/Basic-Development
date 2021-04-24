@@ -1,4 +1,5 @@
 **Páginas estáticas:** Portada, Historia, Visítanos - Se manejan en la app core
+
 **Páginas dinámicas:** Servicios, Blog - Se manejan en sus respectivas apps
 
 En el pie de página se encuentran enlaces a redes sociales y páginas genéricas. Las redes sociales se gestionan en una app *social*, las páginas genéricas se gestionan en la app *pages*
@@ -84,3 +85,18 @@ Para que django interprete los cambios que se realizan en el texto, en el templa
 
 {{page.content|linebreacks}} -> {{page.content|safe}}
 
+### Formulario de contacto
+
+Se crea *forms.py* dentro de la app **contact**, se importa la librería forms y se crea una clase con los campos de nombre, correo y contenido, al enviar el formulario se debe tener en cuenta la verificación CSRF, generando el token en el formulario
+
+{% csrf_token %}
+
+#### Enviar el correo
+
+Se importa la librería **EmailMessage** y se modifica la vista con los datos y la forma en que se recibe el correo
+
+### Personalizar el ADMIN (4)
+
+Modificando los permisos de acceso, en el admin se crea un grupo **Personal** para los clientes con permisos completos para el blog, las páginas y los servicios, para la app social tiene permiso de ver y cambiar el enlace. Al crear el usuario se debe señalar la opción **Es staff** y se le asigna al grupo **Personal**.
+
+Se modifica el script *admin.py* de la app **social** para que el nombre clave y el de la red solo sean de lectura para el personal
