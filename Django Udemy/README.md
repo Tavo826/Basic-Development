@@ -112,5 +112,35 @@ list_filter = (*args,)
 
 Para mostrar los elementos relacionados en campos many to many se crea un método dentro de la clase
 
+### Procesadores de contexto
 
+Se utilizan para recuperar los enlaces de las páginas web, se entiende como contexto un diccionario común que contiene información que puede extenderse a todos los templates y así no enviar esta información desde la vista
 
+Si se tiene creado un diccionario y se desea que este extienda el proceso global, en el script *settings.py* la variable **TEMPLATES** contiene una clave llamada *OPTIONS* y dentro de los procesadores de contexto se añade dicho diccionario
+
+### Template tags propios
+
+Muestra un contenido personalizado. Es una herramienta más flexible al procesador de contexto, pero consume más recursos porque se debe ejecutar el template tag en cada template, en comparación co el procesdor de contexto que ya está inyectado en todos los templates
+
+#### Creación del template tag
+
+Se crea dentro de la app un directorio llamado **templatetags**, dentro de este se indica que es un package creando el script *__init__.py*. Segidamente se crea un segundo fichero y se registra dentro de la librería de templates escribiendo **from django import template**, y también se importa el modelo que se va a utilizar. Se crea un función para recuperar el contenido y lo devuelva al template en forma de template tag, este template tag debe registrarse en la librería de templates, se crea una variable donde se hace referencia a la librería **template.Library()** y se añade un decorador a la función del template tag **@'variable'.simple_tag**. Finalmente se modifica el template donde se quiera usar
+
+### Orden manual de los modelos
+
+Orden manual de las páginas secundarias, en el modelo que se quiere ordenar, se agrega un nuevo campo de tipo **SmallIntegerField**, luego se cambia la variable **ordering** dándole prioridad al campo que se acaba de crear. Luego de esto se agrega una variable en el admin que permita visualizar los campos de ordenamiento
+
+### Edición directa de un modelo
+
+Destecta el tipo de usuario y habilita un botón en el front que lo lleva a la edición de la página. Para conocer el tipo de usuario, este se guarda en el contexto ubicado en el script *settings.py* **django.contrib.auth.context_processors.auth** lo que permite que se pueda visualizar desde cualquier template
+
+### Personalizar el ADMIN (3)
+
+Añadir un editor de texto wysiwyg (what you see is what you get), en este caso el *ckeditor*, para esto se debe tener instalada la librería **django-ckeditor**, luego se añade a las apps instaladas en *settings.py* y se modifica el modelo donde se quiera agregar
+
+Para establecer una configuración personalizada básica se debe redefinir su diccionario de configuración en *settings.py*. Se crea un diccionario **CKEDITOR_CONFIGS** y dentro de la clade **defautlt** se pueden cambiar parámetros como
+
+* 'toolbar': None -> muestra todas las opciones de la barra de herramientas
+* 'toolbar': 'Basic' -> muestra un diseño simple con negritas y cursivas
+
+Para que django interprete los cambios que se realizan en el texto, se cambia el template donde se use la variable de contenido del modelo

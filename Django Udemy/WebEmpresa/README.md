@@ -25,3 +25,62 @@ Para las categorías, se pretende agregar varias a una misma entrada, se crea un
 
 categories = models.ManyToManyField(Category, verbose_name='Categorías')
 
+### Procesadores de contexto
+
+Con esto se pretende recuperar los link de las redes sociales que se añadan en la app social
+
+#### Prueba
+
+Se crea dentro de la app **social** un script llamado *processors.py* y allí se crea una función **context_dict** que retorna un diccionario. En el script *settings.py* se modifica dentro de la variable **TEMPLATES**, la clave **context_processors** añadiendo la función
+
+'social.processors.context_dict'
+
+
+### Template tags propios
+
+Se encarga de recuperar y devolver la lista de páginas secundarias
+
+Se crea dentro de la app **pages** el directorio **templatetags** y dentro de este se crean los scripts *__init__.py* y *pages_extras.py*. Dentro de este se registra en templates **from django import template** y se importa el modelo **from pages.models import Page**. Se crea una función para recuperar la lista de páginas
+
+def get_page_list():
+    pages = Page.objects.all()
+    return pages
+
+Se registra el template tag
+
+register = template.Lybrary()
+
+Y se añade un decorador a la función 
+
+@register.simple_tag
+
+En el template *base.html* se modifican los enlaces de las páginas externas, se carga el script *pages_extras.py* y se llama la función del template tag como una variable y se recorre con un for para mostrarlas
+
+### Orden manual de las páginas secundarias
+
+En el modelo *Page* se agrega un campo de tipo **SmalIntegerField** y se cambia la prioridad del orden en la subclase *Meta*
+
+ordering = ['title'] -> ordering = ['order','title']
+
+Finalmente se agrega en el admin
+
+list_display = ['title', 'order']
+
+#### Edición directa
+
+Destecta el tipo de usuario y habilita un botón en el front que lo lleva a la edición de la página. Se accede al usuario activo en el template *sample.html* **{{user}}**, este boton debe apuntar a la edición de cada página secundaria del admin **admin:pages_page_change**
+
+### Añadiendo un editor de texto
+
+Se añade el editor **ckeditor** a las apps instaladas del *settings.py*. En el script *models.py* se importa 
+
+from ckeditor.fields import RichTextField
+
+Y para usarlo se modifica el campo **content** del modelo sustituyendo **models.TextField** por **RichTextField**
+
+Para establecer una configuración personaliada de la barra de herramientas, se crea el diccionario **CKEDITOR_CONFIGS** y se cambian sus valores por defecto
+
+Para que django interprete los cambios que se realizan en el texto, en el template *sample.html*
+
+{{page.content|linebreacks}} -> {{page.content|safe}}
+
