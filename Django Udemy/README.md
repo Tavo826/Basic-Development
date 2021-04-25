@@ -156,3 +156,37 @@ Para hacer pruebas se puede hacer con **Mailtrap.io** y copiar la configuración
 ### Personalizar el ADMIN (4)
 
 Modificando los permisos de los usuarios, se crea un grupo en el admin y se les da los permisos, cada modelo tiene 4 permisos añadir, cambiar, borrar y ver. También puede ser necesario que algunos campos sean de solo lectura, esto se hace en el script *admin.py* de la app
+
+### Vistas basadas en clases
+
+**FBV** (vistas basadas en funciones)
+
+**CBV** (vistas basadas en clases)
+
+Las CBV:
+
+* Sirven como moldes
+
+* Contienen atributos y métodos
+
+* Permiten el uso de herencia
+
+Los tipos de vistas blasadas en clases se dividen en grupos 
+
+* **autenticación:** LoginView, LogoutView, PasswordChangeDoneView, PasswordChangeView, PasswordResetCompleteView, PasswordResetConfirmView, PasswordResetDoneView, PasswordResetView
+
+* **genéricas de detalles:** DetailView
+ 
+* **genéricas de edición:** CreatedView, DeleteView, FormView, UpdateView
+
+* **genéricas de base:** RedirectView, TemplateView, View
+
+* **genéricas de listas:** ListView
+
+* **genéricas de fechas:** ArchiveIndexView, DateDetailView, DayArchiveView, MonthArchiveView, TodayArchiveView, WeekArchiveView, YearArchiveView
+
+Estas vistas se deben llamar de manera diferente en el script *urls.py*. Dentro de la clase creada en las vistas, se puede sobreescribir el diccionario de contexto por si se desea enviar información
+
+#### Vistas CRUD (Create, Read, Update, Delete) con CBV
+
+Se le da al ususario la opción de administrar las páginas a través de un menú que solamente les aparece a ellos.
