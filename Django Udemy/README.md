@@ -72,11 +72,15 @@ Cuando se trabaja con bases de datos y modelos, el proceso que sigue Django es e
 
 ### Relaciones entre modelos
 
-#### Relaciones con foreign keys:
+#### Relaciones One to One (1:1):
+
+Indican que solo puede haber un perfil por cada usuario
+
+#### Relaciones con foreign keys (1:N):
 
 Permiten enlazar una insancia de un modelo con otra instancia de otro modelo, o del mismo. Un ejemplo es el enlace de una entrada con un usuario que representa al autor
 
-#### Relaciones many to many: 
+#### Relaciones many to many (N:M): 
 
 Permiten enlazar varias instancias. Un ejemplo es la asignación de varias categorías a una sola entrada.
 
@@ -190,3 +194,26 @@ Estas vistas se deben llamar de manera diferente en el script *urls.py*. Dentro 
 #### Vistas CRUD (Create, Read, Update, Delete) con CBV
 
 Se le da al ususario la opción de administrar las páginas a través de un menú que solamente les aparece a ellos.
+
+Para la creación de páginas se utiliza una vista basada en clases llamada **CreateView**. Para editar una página, se utiliza la CBV **UpdateView** y para eliminar una página se usa la CBV **DeleteView**
+
+#### Personalizar el formulario de las CBV
+
+Se crea en la app un nuevo script *forms.py* y se crea la clase del formulario con las características necesarias. En este se pueden añadir widgets con configuraciones avanzadas
+
+### Mixin de identificación
+
+Se añade un acceso privado para que las vistas no sean públicas y solamente las personas con permisos puedan crear, modificar o borrar. Para realizar esto se crea una clase que sobreescribe un método llamado **dispatch**
+
+### Decoradores de identificación
+
+Existen con el fin de evitar crear un mixin cada que se requiera que el usuario deba identificarse agregándolo a las vistas basadas en clase que se requiera que el usuario se identifique
+
+### Configurar un servidor SMTP para pruebas
+
+En este caso se usa para la recuperación de la contraseña a través del correo electrónico del usuario
+
+### Señales
+
+Disparador que se llama automáticamente después de un evento que ocurre en el ORM (modelo). Esta se crea en el script *models.py*
+

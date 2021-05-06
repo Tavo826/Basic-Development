@@ -1,3 +1,10 @@
+<!--Bloque para que se muestre el ckeditor en la creación o edición de páginas-->
+{% load static %}
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+<!--Cargando el css para modificar el formulario-->
+<link rel="stylesheet" href="{% static '/pages/static/scc/custom_ckeditor.css' %}">
+
 {% if request.user.is_staff %}
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
