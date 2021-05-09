@@ -19,6 +19,8 @@ from django.urls import path, include
 from pages.urls import pages_patterns
 #Para cargar la imágen del ávatar (ficheros media)
 from django.conf import settings
+#Importando las urls de la app profiles
+from profiles.urls import profiles_patterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +29,7 @@ urlpatterns = [
     #django provee las urls para manejar la autenticación
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('registration.urls')),
+    path('profiles/', include(profiles_patterns)),
 ]
 
 if settings.DEBUG:

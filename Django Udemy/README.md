@@ -217,3 +217,32 @@ En este caso se usa para la recuperación de la contraseña a través del correo
 
 Disparador que se llama automáticamente después de un evento que ocurre en el ORM (modelo). Esta se crea en el script *models.py*
 
+### Pruebas unitarias
+
+Se encargan de automatizar un procedimiento, gestionadas es una base de datos aparte y una vez finalizada, no queda rastro de los cambios.
+
+Para crear una prueba, se hace en el script *test.py* cargando los modelos que se van a utilizar
+
+Para ejecutarlo:
+
+python manage.py test **nombre_app**
+
+### Paginación
+
+Permite dividir los registros en distintas páginas
+
+### Principio de las 5 W
+
+* **Who:** quién hará uso de la funcionalidad?
+
+* **What:** qué hará la funcionalidadr
+
+* **When:** cuándo?
+
+* **Where:** dónde?
+
+* **Why:** por qué?
+
+#### Thread (hilo de conversación) - Modelo
+
+Lugar donde ocurre la conversación, punto de encuentro deonde se almacenan los mensajes, por lo tanto no se necesita un receptor, este será el propio hilo que contendrá el mensaje

@@ -34,3 +34,28 @@ Simula que envía los correos pero en realidad los guarda en forma de ficheros d
 
 En el proyecto se pretende que después de que se un usuario se registre, se cree un perfil de este.
 
+### Pruebas unitarias
+
+Se pretende crear un usuario para luego comprobar que se creó un perfil para este en el script *test.py* de la app **registration**
+
+Se ejecuta el test
+
+python manage.py test registration
+
+### Paginación
+
+Se modifica en las vistas de la app **profiles** y se organiza en el templaet *profile_list.html*
+
+### Principio de las 5 W
+
+* **Who:** Un usuario registrado e identificado
+
+* **What:** Establecer un chat privado entre el susuario y otros usuarios para que se puedan comunicar
+
+* **When:** Cuando un usuario decida iniciar una conversación con otro
+
+* **Where:** En su debida sección de Mensajes o a través del botón "Enviar mensaje" en los perfiles públicos
+
+* **Why:** Porque ofrecer una vía de comunicación privada es una opción que toda aplicación social debería incluir
+
+El sistema de mensajes no será en tiempo real, sino un sistema mpas simple parecido a un email interno que el usuario deberá comprobar manualmente

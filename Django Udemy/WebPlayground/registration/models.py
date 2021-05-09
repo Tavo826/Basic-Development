@@ -7,13 +7,27 @@ from django.db.models.signals import post_save
 
 # Create your models here.
 
+
+#Función para sobreescribir la imagen del avatar
+def custom_upload_to(instance, filename):
+    #recuperando la instancia antes de ser guardada
+    old_instance = Profile.objects.get(pk=instance.pk)
+    #Eliminando al avatar anterior
+    old_instance.avatar.delete()
+    return 'profiles/' + filename
+
+
 #Modelo para completar el registro del usuario
 class Profile(models.Model):
     #Relación para relacionar al usuario con el perfil (One to One)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    avatar = models.ImageField(upload_to='profiles', null=True, blank=True)
+    #Se guarda la imagen más reciente del perfil del usuario
+    avatar = models.ImageField(upload_to=custom_upload_to, null=True, blank=True)
     bio = models.TextField(null=True, blank=True)
     link = models.URLField(max_length=200, null=True, blank=True)
+
+    class Meta:
+        ordering = ['user__username']
 
 
 #Señal que crea automáticamente el perfil de cada usuario luego de registrarse
