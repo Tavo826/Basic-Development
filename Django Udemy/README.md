@@ -246,3 +246,38 @@ Permite dividir los registros en distintas páginas
 #### Thread (hilo de conversación) - Modelo
 
 Lugar donde ocurre la conversación, punto de encuentro deonde se almacenan los mensajes, por lo tanto no se necesita un receptor, este será el propio hilo que contendrá el mensaje
+
+### TTD (Test Driven Development o Desarrollo Guiado por Pruebas)
+
+Para llevarlo a cabo se usan 4 fases
+
+1. Escribir el Test y hacer que falle
+
+2. Escribir la mínim cantidad de código para que el test pase
+
+3. Escribir un nuevo test y hacer que falle
+
+4. Escribir el algoritmo necesario para hacer pasar el test
+
+* Por facilidad lo que se hace en este proyecto es pasar del punto **1** al punto **4** directamente
+
+Para llevar a cabo una prueba, se escribe en la terminal
+
+python manage.py test **Nombre_app**
+
+Para hacer un test de un entorno en particular
+
+python manage.py test **Nombre_app**.test.**Nombre_clase**
+
+Para hacer un test singular en particular
+
+python manage.py test **Nombre_app**.test.**Nombre_clase**.**Nombre_test**
+
+## Peticiones asíncronas
+
+Cuando un proceso es síncrono, el usuario queda en un limbo (lo que tarde en responder el servidor) esperando una respuesta. Al hacer la petición de forma asíncrona, la página sigue funcionando, o sea que la peticióm se maneja en segundo plano. Estas peticiones asíncronas no requieren recargar toda la página, simplemente una sección determinada.
+
+Se utiliza js para crear un objeto en la memoria donde se maneja la petición, se captura la respuesta y se modifica el DOM (Document Object Model) lo que permite cambiar la estructura de un HTML en tiempo real
+
+
+

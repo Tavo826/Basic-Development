@@ -58,4 +58,18 @@ Se modifica en las vistas de la app **profiles** y se organiza en el templaet *p
 
 * **Why:** Porque ofrecer una vía de comunicación privada es una opción que toda aplicación social debería incluir
 
-El sistema de mensajes no será en tiempo real, sino un sistema mpas simple parecido a un email interno que el usuario deberá comprobar manualmente
+El sistema de mensajes (app messenger) no será en tiempo real, sino un sistema más simple parecido a un email interno que el usuario deberá comprobar manualmente
+
+### TTD (Test Driven Development o Desarrollo Guiado por Pruebas)
+
+Ya teniendo los modelos creados en la app **messenger** se pueden realizar algunas pruebas antes de realizar las vistas, para saber si funcionan correctamente
+
+En el fichero *test.py* se crean algunos test para probar los modelos
+
+#### Model Manager
+
+Se pretende que sea más fácil recuperar un hilo a través de sus usuarios, sin tener que aplicar el filtro 2 veces, para esto se crea una consulta propia **find** en el modelo para recuperar una instancia a partir de los usuarios de entrada. Para crear el administrador, se crea una clase llamada **ThreadMnager
+
+## Peticiones asíncronas
+
+Se hace innecesario crear un formulario para cargar los mensajes de la app messenger. Es la manera idea de enviar mensajes sin recargar toda la página
