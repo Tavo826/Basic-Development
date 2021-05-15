@@ -292,7 +292,22 @@ Lo **entornos de ejecución** son una configuración que envuelve la ejecución 
 
 El proceso de cambiar el código de un entorno a otro se conoce como **fase de despliegue** y contiene la instalación, configuración y unas pruebas mínimas de funcionamiento
 
+### Aplicaciones que permiten realizar despliegues en la nube
 
+* Heroku
+* Amazon Web Service
+* VPS (Servidor Virtual Privado)
+* *Pythonanywhere*
+
+### Proceso en pythonanywhere
+
+#### 1. Crear un entorno virtual para el despliegue
+
+Consolas -> bash:
+
+--> Crear entorno virtual *mkviertualenv --python=python3.7 **Nombre***
+
+--> 
 
 
 
