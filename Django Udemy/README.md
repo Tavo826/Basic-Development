@@ -273,11 +273,27 @@ Para hacer un test singular en particular
 
 python manage.py test **Nombre_app**.test.**Nombre_clase**.**Nombre_test**
 
-## Peticiones asíncronas
+### Peticiones asíncronas
 
 Cuando un proceso es síncrono, el usuario queda en un limbo (lo que tarde en responder el servidor) esperando una respuesta. Al hacer la petición de forma asíncrona, la página sigue funcionando, o sea que la peticióm se maneja en segundo plano. Estas peticiones asíncronas no requieren recargar toda la página, simplemente una sección determinada.
 
 Se utiliza js para crear un objeto en la memoria donde se maneja la petición, se captura la respuesta y se modifica el DOM (Document Object Model) lo que permite cambiar la estructura de un HTML en tiempo real
+
+
+## DESPLIEGUE
+
+### Entornos
+
+Lo **entornos de ejecución** son una configuración que envuelve la ejecución del software, los entornos más comunes son de *desarrollo*, *producción* y *pruebas*
+
+* *Entorno de desarrollo:* donde los programadores crean las aplicaciones ayudándose de configuraciones específicas
+
+* *Entorno de producción:* está dirigido al usuario final, el lugar donde corre el código una vez está funcionando públicamente
+
+El proceso de cambiar el código de un entorno a otro se conoce como **fase de despliegue** y contiene la instalación, configuración y unas pruebas mínimas de funcionamiento
+
+
+
 
 
 
