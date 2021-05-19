@@ -280,7 +280,7 @@ Cuando un proceso es síncrono, el usuario queda en un limbo (lo que tarde en re
 Se utiliza js para crear un objeto en la memoria donde se maneja la petición, se captura la respuesta y se modifica el DOM (Document Object Model) lo que permite cambiar la estructura de un HTML en tiempo real
 
 
-## DESPLIEGUE
+## DESPLIEGUE (webempresa)
 
 ### Entornos
 
@@ -307,8 +307,61 @@ Consolas -> bash:
 
 --> Crear entorno virtual *mkviertualenv --python=python3.7 **Nombre***
 
---> 
+--> Clonar el repositorio *git clone **url***
 
+--> Instalar dependencias *pip install -r requirements.txt*
 
+--> Comprobar configuraciones a optimizar para realizar el despliegue *python3.7 manage.py check --deploy*
 
+#### 2. Modificar las configuraciones
 
+Se debe cambiar el DEBUG a False
+
+Agregar los servidores o dominos que tienen permitido acceder en la variable ALLOWED_HOST (ejm. 'tavo826.pythonanywhere.com/', 'localhost', '127.0.0.1')
+
+La base de datos subida al repositorio, por ser SQLite, se gestiona con un fichero individual, por lo que es una copia
+
+#### 3. Crear una app para mantener el servicio de django en marcha
+
+Web -> add a new web app -> configuración manual -> python3.7
+
+#### 4. Configurar el source code de la web app
+
+**pwd** en el bash: */home/Tavo826/webempresa*
+
+#### 5. Configurar el entorno virtual
+
+**which python** en el bash: */home/Tavo826/.virtualenvs/Des*
+
+#### 6. Configurar el archivo WSGI
+
+Se borra el contenido y el nuevo código se encuentra en el manual de pythonanywhere
+
+mysite <=> *Tavo826/webempresa*
+
+mysite.settings <=> *webempresa.settings*
+
+#### 7. Configurar los archivos estáticos
+
+Static files:
+
+**URL 1:** */static/*   **Path1:** */home/Tavo826/webempresa/static/*
+**URL 2:** */media/*    **Path2:** */home/Tavo826/webempresa/media/*
+
+El directorio static se gestiona añadiendo bajo la variable **STATIC_URL**, *STATIC_ROOT = os.path.join(BASE_DIR, 'static')*
+
+Luego en el bash se escribe el comando *python3.7 manage.py collectstatic*
+
+#### 8. Configurar una cuenta de correo electrónico para que funcione el envío de contacto
+
+### Personalizar el ADMIN (5)
+
+Cambiando los títulos del panel y agregando un logo:
+
+En el fichero *urls.py* de la app se modifican los títulos
+
+Para agregar un logo, se deben modificar los templates del panel del administrador, estos estarán en la carpeta templates de la raíz y se agrega en *settings.py* en la variable **TEMPLATES** en la clave **DIRS** este directorio
+
+Los templates del panel de aministrador se encuentran en el entorno virtual *Lib -> site-packages -> django -> contrib -> admin -> templates -> admin*
+
+La imagen se guarda en la carpeta static de la raíz y se configura *settings.py* bajo la variable **STATIC_URL**
