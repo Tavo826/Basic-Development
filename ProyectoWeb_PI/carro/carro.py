@@ -15,9 +15,9 @@ class Carro:
             carro = self.session['carro'] = {}
 
         #Si se va a otra página y vuelve, se muestra el carro que tenía
-        else:
-            #Recupera el carro
-            self.carro = carro
+        #else:
+        #Recupera el carro
+        self.carro = carro
 
     def agregar(self, producto):
         #Se agrega el producto si no está en el carro
