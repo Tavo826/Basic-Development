@@ -11,8 +11,8 @@ app = Flask(__name__)
 #Protege las sesiones para luego almacenar los mensajes en el navegador del cliente
 app.config['SECRET KEY'] = 'your secret key'
 
-#El usuario puede| acceder a la información almacenada en la sesión
-#pero no puede modificarla si no tiene la clave secreta
+#El usuario puede acceder a la información almacenada en la sesión
+#pero no puede modificarla si no tiene la base secreta
 
 #Función que crea una conexión con la base de datos
 def get_db_connection():

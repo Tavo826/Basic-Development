@@ -12,7 +12,7 @@ with open('schema.sql') as f:
 #Se crea un objeto cursor
 cur = connection.cursor()
 
-#Se crean 2 entradas de blog en la tabla
+#Se permiten 2 entradas de blog en la tabla
 cur.execute('INSERT INTO posts (title, content) VALUES (?, ?)',
             ('First Post', 'Content for the first post'))
 

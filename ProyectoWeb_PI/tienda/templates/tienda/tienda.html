@@ -11,7 +11,9 @@
 
         <!--Creando el widget del carrito-->
         <div style="float: right;">
-            <p style="color: white;">Acá va el carrito</p>
+
+            {% include 'carro/widget.html' %}
+
         </div>
     
         <div class="row">
@@ -29,9 +31,9 @@
                             <p class="card-text">$&nbsp;{{producto.precio}}</p>
                         </div>
 
-                        <!--Botón para agregar al crrito-->
+                        <!--Botón para agregar al carrito-->
                         <div class="card-footer text-center">
-                            <a href="#" class="btn btn-success">Agregar al carrito</a>
+                            <a href="{% url 'carro:agregar' producto.id %}" class="btn btn-success">Agregar al carrito</a>
                         </div>
 
                     </div>

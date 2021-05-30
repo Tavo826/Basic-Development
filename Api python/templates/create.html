@@ -8,14 +8,14 @@
 <form method='post'>
     <div class="form-group">
         <label for="title">Title</label>
-        <input required type="text" name=title
+        <input type="text" name=title
                 placeholder="Post title" class="form.control"
                 value="{{ request.form['title'] }}"></input>
     </div>
 
     <div class="form-group">
         <label for="content">Content</label>
-        <textarea required name="content" placeholder="Post content"
+        <textarea name="content" placeholder="Post content"
                     class="form-control">{{ request.form['content'] }}</textarea>
     </div>
 
