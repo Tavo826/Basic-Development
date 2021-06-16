@@ -1,0 +1,32 @@
+h3{
+    text-align: center;
+    padding-bottom: 60px;
+}
+
+.tableFormat table{
+    margin: 10px;
+}
+
+td, th{
+    border: solid red 1px;
+    padding: 10px;
+    text-align: center;
+}
+
+form{
+    text-align: center;
+    background-color: wheat;
+    padding: 10px;
+}
+
+#botonAgregar{
+    font-size: 23px;
+}
+
+#divBoton{
+    padding-top: 10px;
+}
+
+.formField{
+    padding-bottom: 10px;
+}
