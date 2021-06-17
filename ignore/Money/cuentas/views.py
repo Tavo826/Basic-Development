@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
 
-def cuentas(request):
+def seguimiento(request):
 
-    return render(request, 'templates/base.html')
+    return render(request, 'cuentas/cuentas.html')
