@@ -12,6 +12,9 @@ class Cuenta(models.Model):
     updated = models.DateTimeField(auto_now=True, verbose_name='Fecha de edición')
 
     class Meta:
-        verbose_name = 'cuenta'
-        verbose_name_plural = 'cuentas'
-        ordering = ['created']
+        verbose_name = 'transacción'
+        verbose_name_plural = 'transacciones'
+        ordering = ['-created']
+
+    def __str__(self):
+        return self.descripcion
