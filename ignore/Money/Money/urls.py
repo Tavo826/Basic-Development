@@ -20,4 +20,5 @@ from cuentas import views as cuentas_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', cuentas_views.seguimiento, name='seguimiento'),
+    path('transaction/<int:transaction_id>', cuentas_views.detallesSeguimiento, name='detalles'),
 ]

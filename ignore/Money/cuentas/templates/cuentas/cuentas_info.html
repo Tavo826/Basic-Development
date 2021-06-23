@@ -1,0 +1,56 @@
+{% extends 'cuentas/base.html' %}
+
+{% block title %} Detalles {% endblock %}
+
+{% block content %}
+
+<div class="row">
+
+    <div class="col l4 s12">
+        <div class="col s10 offset-s2">
+            <form id="transactionForm">
+
+                <div class="formField">
+                    <p>
+                        <span id="tipo">Tipo:</span>
+                        <label id='ingreso'>
+                            <input type="radio" value="Ingreso" class="with-gap" name="TransactionType" checked />
+                            <span>Ingreso</span>
+                        </label>
+                        <label>
+                            <input type="radio" value="Egreso" class="with-gap" name="TransactionType" checked />
+                            <span>Egreso</span>
+                        </label>
+                    </p>
+                </div>
+
+                <div class="input-field">
+                    <label for="transactionAmount">Monto</label>
+                    <input required min="0" type="number" class="validate" name="TransactionAmount" id="TransactionAmount">
+                </div>
+
+                <div class="formField">
+                    <label>Categoría</label>
+                    <select name="transactionCategory" id="transactionCategory" class="browser-default">
+                        <option value="Seleccionar" disabled selected>Seleccionar...</option>
+                    </select>
+                </div>
+
+                <div class="input-field">
+                    <label for="transactionalDescription">Descripción</label>
+                    <input type="text" name="transactionDescription" id="transactionDescription" class="validate">
+                </div>
+
+                <div class="formField" id="divBoton">
+                    <button class="btn waves-effect waves-light" id="botoAgregar" type="submit">Agregar
+                        <i class="material-icons right">monetization_on</i>
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
