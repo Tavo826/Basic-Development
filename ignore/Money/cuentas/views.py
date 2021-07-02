@@ -1,15 +1,22 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import Cuenta
+from .forms import CuentaForm
 
 
 def seguimiento(request):
+    form = CuentaForm(request.POST)
     if request.method == 'GET':
         transacciones = Cuenta.objects.all()
-        return render(request, 'cuentas/cuentas.html', {'transacciones': transacciones})
 
     elif request.method == 'POST':
-        pass
+        if form.is_valid():
+            new_transaction = form.save()
+
+            # return redirect()
+
+    return render(request, 'cuentas/cuentas.html', {'transacciones': transacciones, 'form': form})
 
 
 def detallesSeguimiento(request, transaction_id):
-    return render(request, 'cuentas/cuentas_info.html')
+    form = CuentaForm()
+    return render(request, 'cuentas/cuentas_info.html', {'form': form})

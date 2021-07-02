@@ -34,13 +34,15 @@
                 {% for transaccion in transacciones %}
                     <tr>
                         <td>
-                            {{transaccion.tipo}}
+                            <u><a href="{% url 'detalles' transaccion.id %}" style="color: black;">{{transaccion.tipo}}</a></u>
                         </td>
                         <td>
                             {{transaccion.cantidad}}
                         </td>
                         <td>
-                            {{transaccion.categoria}}
+                            {% for categoria in transaccion.categoria.all %}
+                                {{categoria}}{% if not forloop.last %},{% endif %}
+                            {% endfor %}
                         </td>
                         <td>
                             {{transaccion.descripcion}}
@@ -54,10 +56,43 @@
             </tbody>
         </table>            
     </div>
+    
 
     <div class="col l4 s12">
         <div class="col s10 offset-s2">
-            <form id="transactionForm">
+            
+            <form action="">{% csrf_token %}
+
+                <div class="formField">
+                    <p>
+                        <span id="tipo">Tipo:</span>
+
+                        {% for radio in form.tipo %}
+                            <label id='ingreso'>
+                                <input type="radio" class="with-gap" name="TransactionType" checked />
+                                <span>{{radio}}</span>
+                            </label>
+                        {% endfor %}
+
+                    </p>
+                </div>
+
+                <div class="input-field">
+                    <label for="transactionAmount">Monto</label>
+                    {{form.cantidad}}
+                </div>
+
+                <div class="formField">
+                    <label for="">Categoría</label>
+                    {{form.categoria}}
+                </div>
+
+            </form>
+
+
+
+
+            <form id="transactionForm">{% csrf_token %}
 
                 <div class="formField">
                     <p>
@@ -69,7 +104,7 @@
                         <label>
                             <input type="radio" value="Egreso" class="with-gap" name="TransactionType" checked />
                             <span>Egreso</span>
-                        </label>
+                        </label>                        
                     </p>
                 </div>
 
@@ -97,6 +132,7 @@
                 </div>
 
             </form>
+
         </div>
     </div>
 
