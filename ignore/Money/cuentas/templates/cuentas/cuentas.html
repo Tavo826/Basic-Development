@@ -83,16 +83,29 @@
                 </div>
 
                 <div class="formField">
-                    <label for="">Categoría</label>
-                    {{form.categoria}}
+                    <select name="transactionCategory" id="transactionCategory" class="browser-default">
+                        <option value="Categoría" disabled selected>Categoría...</option>
+                        {% for categoria in form.categoria %}
+                        <option value={{categoria}}></option>
+                        {% endfor %}
+                    </select>                        
+                </div>
+
+                <div class="input-field">
+                    <label id="labelDescription" for="transactionalDescription">Descripción</label>
+                    {{form.descripcion}}
+                </div>
+
+                <div class="formField" id="divBoton">
+                    <button class="btn waves-effect waves-light" id="botoAgregar" type="submit">Agregar
+                        <i class="material-icons right">monetization_on</i>
+                    </button>
                 </div>
 
             </form>
 
 
-
-
-            <form id="transactionForm">{% csrf_token %}
+            <!-- <form id="transactionForm">{% csrf_token %}
 
                 <div class="formField">
                     <p>
@@ -131,7 +144,7 @@
                     </button>
                 </div>
 
-            </form>
+            </form> -->
 
         </div>
     </div>
