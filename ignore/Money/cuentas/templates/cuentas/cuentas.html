@@ -61,7 +61,7 @@
     <div class="col l4 s12">
         <div class="col s10 offset-s2">
             
-            <form action="">{% csrf_token %}
+            <form action="" method="POST">{% csrf_token %}
 
                 <div class="formField">
                     <p>
@@ -69,7 +69,7 @@
 
                         {% for radio in form.tipo %}
                             <label id='ingreso'>
-                                <input type="radio" class="with-gap" name="TransactionType" checked />
+                                <input type="radio" class="with-gap" name="TransactionType" />
                                 <span>{{radio}}</span>
                             </label>
                         {% endfor %}
@@ -96,8 +96,10 @@
                     {{form.descripcion}}
                 </div>
 
-                <div class="formField" id="divBoton">
-                    <button class="btn waves-effect waves-light" id="botoAgregar" type="submit">Agregar
+                <div class="post" id="divBoton">
+                    <!-- <button onclick="location.href='{% url "seguimiento" %}"\ -->
+                    <button
+                    class="btn waves-effect waves-light" id="botoAgregar" type="submit">Agregar
                         <i class="material-icons right">monetization_on</i>
                     </button>
                 </div>

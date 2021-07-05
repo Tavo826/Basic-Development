@@ -11,5 +11,7 @@ class CuentaForm(forms.ModelForm):
         widgets = {
             'tipo': forms.RadioSelect(),
             # 'categoria': forms.Select(attrs={'class': 'form-control col-sm-2'})
-            'categoria': forms.CheckboxSelectMultiple()
+            'categoria': forms.SelectMultiple(attrs={'style': 'backgound-color:wheat;'}),
+            'descripcion': forms.Textarea(attrs={'style': 'font-size:12px\
+                ; height:100px; border:solid black 1px;'})
         }

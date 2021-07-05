@@ -4,15 +4,17 @@ from .forms import CuentaForm
 
 
 def seguimiento(request):
-    form = CuentaForm(request.POST)
-    if request.method == 'GET':
-        transacciones = Cuenta.objects.all()
 
-    elif request.method == 'POST':
+    if request.method == 'POST':
+        form = CuentaForm(request.POST)
         if form.is_valid():
-            new_transaction = form.save()
-
-            # return redirect()
+            form = form.save()
+            transacciones = Cuenta.objects.all()
+            return redirect(request, 'cuentas/cuentas.html', {'transacciones': transacciones, 'form': form})
+        else:
+            form = CuentaForm()
+    
+    transacciones = Cuenta.objects.all()
 
     return render(request, 'cuentas/cuentas.html', {'transacciones': transacciones, 'form': form})
 
