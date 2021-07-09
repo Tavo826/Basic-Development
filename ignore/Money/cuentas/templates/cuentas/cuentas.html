@@ -56,22 +56,24 @@
             </tbody>
         </table>            
     </div>
-    
 
     <div class="col l4 s12">
         <div class="col s10 offset-s2">
             
-            <form action="" method="POST">{% csrf_token %}
+            <form method="POST" id="transactionForm">{% csrf_token %}
 
                 <div class="formField">
                     <p>
-                        <span id="tipo">Tipo:</span>
+                        <span id="tipo">{{form.tipo.label}}:</span>
+                        <!-- <label for="">{{form.tipo.label}}</label> -->
 
-                        {% for radio in form.tipo %}
-                            <label id='ingreso'>
-                                <input type="radio" class="with-gap" name="TransactionType" />
-                                <span>{{radio}}</span>
+                        {% for radio in form.tipo %}     
+
+                            <label for="{{radio.id_for_label}}">
+                                {{radio.tag}}
+                            <span class="radio">{{radio.choice_label}}</span>
                             </label>
+
                         {% endfor %}
 
                     </p>
@@ -83,7 +85,7 @@
                 </div>
 
                 <div class="formField">
-                    <select name="transactionCategory" id="transactionCategory" class="browser-default">
+                    <select required name="transactionCategory" id="transactionCategory" class="browser-default">
                         <option value="Categoría" disabled selected>Categoría...</option>
                         {% for categoria in form.categoria %}
                         <option value={{categoria}}></option>
