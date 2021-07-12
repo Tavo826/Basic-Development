@@ -21,9 +21,9 @@ class Cuenta(models.Model):
 
     TYPE_CHOICES = (('Ingreso', 'Ingreso'), ('Egreso', 'Egreso'))
 
-    tipo = models.CharField(max_length=10, choices=TYPE_CHOICES, verbose_name='Tipo', default='Ingreso')
+    tipo = models.CharField(max_length=10, choices=TYPE_CHOICES, verbose_name='Tipo', default=None)
     cantidad = models.FloatField(verbose_name='Cantidad')
-    categoria = models.ManyToManyField(Category, verbose_name='Categoría', related_name='get_transaction')
+    categoria = models.ManyToManyField(Category, verbose_name='Categoría', related_name='categoria')
     descripcion = models.TextField(verbose_name='Descripción')
     created = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de creación')
     updated = models.DateTimeField(auto_now=True, verbose_name='Fecha de edición')

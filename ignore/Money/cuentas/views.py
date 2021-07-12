@@ -8,13 +8,21 @@ def seguimiento(request):
     if request.method == 'POST':
         form = CuentaForm(request.POST)
         if form.is_valid():
+
+            print('Tipo: ', form['tipo'].value())
+            print('Monto: ', form['cantidad'].value())
+            print('Categoría: ', form['categoria'].value())
+            print('Descripcion: ', form['descripcion'].value())            
+
             form = form.save()
-            transacciones = Cuenta.objects.all()
+            transacciones = Cuenta.objects.all
             return redirect(request, 'cuentas/cuentas.html', {'transacciones': transacciones, 'form': form})
         else:
-            form = CuentaForm()
+            print('Invalid form')
+    else:
+        form = CuentaForm()
     
-    transacciones = Cuenta.objects.all()
+    transacciones = Cuenta.objects.all
 
     return render(request, 'cuentas/cuentas.html', {'transacciones': transacciones, 'form': form})
 

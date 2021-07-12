@@ -29,7 +29,7 @@ td{
     text-align: center;
 }
 
-form{
+#transactionForm{
     text-align: center;
     background-color: wheat;
     padding: 10px;

@@ -65,15 +65,12 @@
                 <div class="formField">
                     <p>
                         <span id="tipo">{{form.tipo.label}}:</span>
-                        <!-- <label for="">{{form.tipo.label}}</label> -->
 
-                        {% for radio in form.tipo %}     
-
-                            <label for="{{radio.id_for_label}}">
+                        {% for radio in form.tipo %}
+                            <label for="{{radio.id_for_label}}" id="ingreso">
                                 {{radio.tag}}
                             <span class="radio">{{radio.choice_label}}</span>
                             </label>
-
                         {% endfor %}
 
                     </p>
@@ -85,12 +82,18 @@
                 </div>
 
                 <div class="formField">
-                    <select required name="transactionCategory" id="transactionCategory" class="browser-default">
-                        <option value="Categoría" disabled selected>Categoría...</option>
+
+                    <span>Categoría</span>
+                    
+                
+                    <select multiple required size='5' style="height:100%"
+                    name="categoria" id="id_categoria" class="browser-default">
+
                         {% for categoria in form.categoria %}
-                        <option value={{categoria}}></option>
+                            {{categoria.tag}}
                         {% endfor %}
-                    </select>                        
+
+                    </select>
                 </div>
 
                 <div class="input-field">
