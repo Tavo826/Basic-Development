@@ -43,7 +43,7 @@ td{
     padding-right: 20px;
 }
 
-#transactionCategory{
+#id_categoria{
     border: solid black 1px;
     background-color: wheat;
     padding-right: 20px;
@@ -51,10 +51,6 @@ td{
 
 #labelDescription{
     padding-left: 10px;
-}
-
-#botonAgregar{
-    font-size: 23px;
 }
 
 #divBoton{
