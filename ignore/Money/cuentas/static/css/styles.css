@@ -57,6 +57,11 @@ td{
     padding-top: 10px;
 }
 
+#totalLabel{
+    text-align: center;
+    padding: 10px;
+}
+
 .formField{
     padding-bottom: 10px;
 }
